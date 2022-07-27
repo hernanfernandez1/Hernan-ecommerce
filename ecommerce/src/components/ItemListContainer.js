@@ -1,20 +1,36 @@
-import {useState } from "react";
+import { useEffect, useState } from "react";
 import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
 
 const ItemListContainer = (props) => {
 
-    const [stock, setStock] = useState(6);
+    /*   const [stock, setStock] = useState(6);
+  
+      const onAdd = (counterStrike) => {
+          setStock(Math.max(stock - counterStrike, 0));
+      } */
+    const [items, setItems] = useState([]);
 
-    const onAdd = (counterStrike) => {
-        setStock(Math.max(stock - counterStrike, 0));
-    }
+    const url = './data/items.json';
+
+    useEffect(() => {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+
+                setTimeout(() => {
+                    setItems(data);
+                }, 2000);
+            })
+    }, []);
 
     return (
         <div>
             <h1 style={{ textAlign: "center", color: 'grey', textDecoration: 'underline' }}>
                 {props.greeting}
             </h1>
-            <ItemCount stock={stock} onAdd={onAdd} />
+            <ItemList items={items} />
+            {/*  <ItemCount stock={stock} onAdd={onAdd} /> */}
 
         </div>
     );

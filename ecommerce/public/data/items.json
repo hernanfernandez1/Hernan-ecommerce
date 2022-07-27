@@ -1,0 +1,60 @@
+[
+    {
+        "id":1,
+        "title":"Comic Avengers",
+        "description": "Edición número 1",
+        "price": "$ 3000",
+        "pictureUrl": "../images/comicAvengers.jpg"
+    },
+    {
+        "id":2,
+        "title":"Comic Amazing Spiderman",
+        "description": "Edición número 1",
+        "price": "$ 9190",
+        "pictureUrl": "../images/amazing spiderman.jpg"
+    },
+    {
+        "id":3,
+        "title":"Comic Thor",
+        "description": "Edición número 1",
+        "price": "$ 1895",
+        "pictureUrl": "../images/thor.jpg"
+    },
+    {
+        "id":4,
+        "title":"Comic Avengers",
+        "description": "Edición número 1",
+        "price": "$ 3000",
+        "pictureUrl": "../images/comicAvengers.jpg"
+    },
+    {
+        "id":5,
+        "title":"Comic Amazing Spiderman",
+        "description": "Edición número 1",
+        "price": "$ 9190",
+        "pictureUrl": "../images/amazing spiderman.jpg"
+    },
+    { 
+        "id":6,
+        "title":"Comic Thor",
+        "description": "Edición número 1",
+        "price": "$ 1895",
+        "pictureUrl": "../images/thor.jpg"
+    },
+    {
+        "id":7,
+        "title":"Comic Avengers",
+        "description": "Edición número 1",
+        "price": "$ 3000",
+        "pictureUrl": "../images/comicAvengers.jpg"
+    },
+    {
+        "id":8,
+        "title":"Comic Amazing Spiderman",
+        "description": "Edición número 1",
+        "price": "$ 9190",
+        "pictureUrl": "../images/amazing spiderman.jpg"
+    }
+    
+]
+
