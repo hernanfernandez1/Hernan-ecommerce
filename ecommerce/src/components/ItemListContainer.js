@@ -1,36 +1,33 @@
 import { useEffect, useState } from "react";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
+import Load from "./Load";
+import { getCategory } from "../utils/api";
 
 const ItemListContainer = (props) => {
 
-    /*   const [stock, setStock] = useState(6);
-  
-      const onAdd = (counterStrike) => {
-          setStock(Math.max(stock - counterStrike, 0));
-      } */
+    const { categoryId } = useParams();
     const [items, setItems] = useState([]);
 
-    const url = './data/items.json';
-
     useEffect(() => {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
 
-                setTimeout(() => {
-                    setItems(data);
-                }, 2000);
-            })
-    }, []);
+        setItems(null);
+        obtainProduct();
+    }, [categoryId])
+
+    const obtainProduct = async () => {
+
+        const found = await getCategory(categoryId);
+        setItems(found);
+    }
 
     return (
         <div>
             <h1 style={{ textAlign: "center", color: 'grey', textDecoration: 'underline' }}>
                 {props.greeting}
             </h1>
-            <ItemList items={items} />
-            {/*  <ItemCount stock={stock} onAdd={onAdd} /> */}
+            {items ? <ItemList items={items} /> : <Load />}
 
         </div>
     );

@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { BsPlusSquareFill } from "react-icons/bs";
 import { FiMinus } from "react-icons/fi";
+import { LinkContainer } from 'react-router-bootstrap';
 
 const Item = ({ item }) => {
     const [counterStrike, setCountStrike] = useState(1);
@@ -47,7 +48,9 @@ const Item = ({ item }) => {
                     </Button>
                 </Card.Body>
                 <div className="btn">
-                    <Button variant="outline-primary" as="input" href="#" type="button" value="Ver detalle del producto" />
+                    <LinkContainer to={'/item/' + item.id}>
+                        <Button variant="outline-primary" as="input" type="button" value="Ver detalle del producto" />
+                    </LinkContainer>
                 </div>
                 <div className='btn'>
                     <Button disabled={stock === 0 || counterStrike === 0} onClick={() => onAdd(counterStrike)} variant="primary">Añadir al carrito</Button>
