@@ -4,9 +4,10 @@ import Card from 'react-bootstrap/Card';
 import { BsPlusSquareFill } from "react-icons/bs";
 import { FiMinus } from "react-icons/fi";
 
-const ItemCount = ({ stock, onAdd }) => {
+const ItemCount = ({ onAdd }) => {
 
     const [counterStrike, setCountStrike] = useState(1);
+    const stock = 6;
 
     useEffect(() => {
 
@@ -23,26 +24,16 @@ const ItemCount = ({ stock, onAdd }) => {
 
     return (
         <div>
-            <Card style={{ width: '18rem', textAlign: 'center' }}>
-                <Card.Img variant="top" src="./images/comicAvengers.jpg" />
-                <Card.Body>
-                    <Card.Title>Comic Avengers</Card.Title>
-                    <Card.Text>
-                        Avengers assemble
-                    </Card.Text>
-                    <Button onClick={minusCount} variant="primary">
-                        <FiMinus />
-                    </Button>
-                    {counterStrike}
-                    <Button onClick={plusCount} variant="primary">
-                        <BsPlusSquareFill />
-                    </Button>
-                </Card.Body>
-                <div className='btn'>
-                    <Button disabled={stock === 0 || counterStrike === 0} onClick={() => onAdd(counterStrike)} variant="primary">Añadir al carrito</Button>
-                </div>
-            </Card>
-
+            <Button onClick={minusCount} variant="primary">
+                <FiMinus />
+            </Button>
+            {counterStrike}
+            <Button onClick={plusCount} variant="primary">
+                <BsPlusSquareFill />
+            </Button>
+            <div className='btn'>
+                <Button disabled={stock === 0 || counterStrike === 0} onClick={() => onAdd(counterStrike)} variant="primary">Añadir al carrito</Button>
+            </div>
         </div>
     )
 }

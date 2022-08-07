@@ -1,4 +1,16 @@
+import ItemCount from "./ItemCount";
+import { useState } from "react"; 
+import { useNavigate } from "react-router-dom";
+
 const ItemDetail = ({ item }) => {
+    const navigate = useNavigate();
+    const [count, setCount] = useState(0);
+
+    const handleAdd = (quantityToAdd) => {
+        setCount(quantityToAdd);
+        navigate('/cart');
+    }
+
     return (
         <div className="container">
             <div className="row">
@@ -19,6 +31,7 @@ const ItemDetail = ({ item }) => {
                             {item.description}
                         </p>
                     </div>
+                    <ItemCount item={item} onAdd={handleAdd} />
                 </div>
             </div>
         </div>
