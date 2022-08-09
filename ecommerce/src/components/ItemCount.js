@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import { BsPlusSquareFill } from "react-icons/bs";
 import { FiMinus } from "react-icons/fi";
 

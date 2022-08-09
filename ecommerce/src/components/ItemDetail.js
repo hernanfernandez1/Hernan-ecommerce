@@ -1,6 +1,7 @@
 import ItemCount from "./ItemCount";
-import { useState } from "react"; 
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 const ItemDetail = ({ item }) => {
     const navigate = useNavigate();
@@ -8,9 +9,10 @@ const ItemDetail = ({ item }) => {
 
     const handleAdd = (quantityToAdd) => {
         setCount(quantityToAdd);
+    }
+    const purchace = () => {
         navigate('/cart');
     }
-
     return (
         <div className="container">
             <div className="row">
@@ -31,7 +33,12 @@ const ItemDetail = ({ item }) => {
                             {item.description}
                         </p>
                     </div>
-                    <ItemCount item={item} onAdd={handleAdd} />
+                    {count === 0 ?
+                        <ItemCount item={item} onAdd={handleAdd} /> :
+                        <Button onClick={purchace}
+                            as="input"
+                            type="button"
+                            value="Terminar Compra" />}
                 </div>
             </div>
         </div>
