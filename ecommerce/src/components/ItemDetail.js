@@ -1,14 +1,16 @@
 import ItemCount from "./ItemCount";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import { CartContext } from "../context/CartContext";
 
 const ItemDetail = ({ item }) => {
     const navigate = useNavigate();
     const [count, setCount] = useState(0);
-
+    const { addItem } = useContext(CartContext);
     const handleAdd = (quantityToAdd) => {
         setCount(quantityToAdd);
+        addItem(item, quantityToAdd);
     }
     const purchace = () => {
         navigate('/cart');
