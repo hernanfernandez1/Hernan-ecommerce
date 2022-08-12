@@ -42,7 +42,8 @@ const CartProvider = ({ children }) => {
     }
 
     const removeItem = (itemId) => {
-
+        const cartDraft = [...cart];
+        setCart(cartDraft.filter((itemInCart) => itemInCart.id !== itemId));
     }
 
     const cleanCart = () => {
