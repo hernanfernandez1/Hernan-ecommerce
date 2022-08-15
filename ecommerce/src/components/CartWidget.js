@@ -4,12 +4,15 @@ import { CartContext } from "../context/CartContext";
 
 function CartWidget() {
 
-    const valueToShare = useContext(CartContext);
-    console.log("Contenido del carrito: \n", valueToShare.cart);
+    const {cantInCart} = useContext(CartContext);
+
+    if (cantInCart === 0) {
+        return <></>;
+    }
     return (
         <>
             <BsCartPlus style={{ fontSize: '20px', color: 'white' }} />
-            {valueToShare.cantInCart}
+            {cantInCart}
         </>
     );
 

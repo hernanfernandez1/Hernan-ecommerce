@@ -49,10 +49,16 @@ const CartProvider = ({ children }) => {
     const cleanCart = () => {
         setCart([])
     }
+    const cantInCart = cart.reduce(
+        (init, item) => init + item.quantity, 0);
+
+    const totalPrice = cart.reduce(
+        (price, item) => price + (item.price * item.quantity), 0);
 
     const valueToShare = {
         cart,
-        cantInCart: cart.length,
+        cantInCart,
+        totalPrice,
         isInCart,
         cleanCart,
         addItem,

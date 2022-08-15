@@ -36,19 +36,15 @@ function CollapsibleExample() {
           </Nav>
           <Nav>
             <Nav.Link href="#deets">CONTACTO</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              CARRITO
-              <CartWidget />
-            </Nav.Link>
-
+            <LinkContainer to={'/cart'}>
+              <Nav.Link >
+                <CartWidget />
+              </Nav.Link>
+            </LinkContainer>
           </Nav>
-
         </Navbar.Collapse>
       </Container>
-
     </Navbar>
-
   );
 }
-
 export default CollapsibleExample;

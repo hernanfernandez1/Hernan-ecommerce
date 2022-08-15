@@ -13,7 +13,7 @@ const Item = ({ item }) => {
                         {item.description}
                     </Card.Text>
                     <Card.Text>
-                        {item.price}
+                       {'$'}{item.price}
                     </Card.Text>
                 </Card.Body>
                 <div className="btn">
