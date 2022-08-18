@@ -14,11 +14,11 @@ function App() {
         <CartProvider>
           <NavBar />
           <Routes>
-            <Route path='/' element={<ItemListContainer greeting="Productos" />} />
-            <Route path='/category/:categoryId' element={<ItemListContainer greeting="Productos" />} />
+            <Route path='/' element={<ItemListContainer greeting="PRODUCTOS"/>} />
+            <Route path='/category/:categoryId' element={<ItemListContainer greeting="PRODUCTOS" />} />
             <Route path='/item/:id' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<CartContainer /> } />
-            <Route path='*' element={<ItemListContainer greeting="Productos" />} />
+            <Route path='*' element={<ItemListContainer greeting="PRODUCTOS" />} />
           </Routes>
         </CartProvider>
       </BrowserRouter>

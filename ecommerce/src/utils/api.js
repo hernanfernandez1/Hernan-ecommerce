@@ -1,40 +1,52 @@
+import { doc, getDoc, getDocs, getFirestore, collection, query, where } from "firebase/firestore";
+
 export const getItem = (id) => {
 
-    const url = '../data/items.json'
     return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(fetch(url)
-                .then(response => response.json())
-                .then(
-                    data => {
-                        return data.find((item) => item.id === id);
-                    }))
-        }, 2000);
+        const db = getFirestore();
+        const itemRef = doc(db, "items", id);
+
+        resolve(getDoc(itemRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    return { id: snapshot.id, ...snapshot.data() };
+                }
+            }))
+            .catch((err) => {
+                console.log(err);
+            })
     })
 }
 
-export const getCategory = (idCategory) => {
+export const getCategory = (categoryId) => {
 
-    const url = '../data/items.json'
     return new Promise((resolve) => {
-        if (idCategory) {
-            setTimeout(() => {
-                resolve(fetch(url)
-                    .then(response => response.json())
-                    .then(
-                        data => {
-                            return data.filter((items) => items.categoryId === idCategory);
-                        }))
-            }, 2000);
-        } else {
-            setTimeout(() => {
-                resolve(fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        return data;
-                    }))
-            }, 2000);
-        }
+        if (categoryId) {
+            const db = getFirestore();
+            const itemsCollectionQuery = query(collection(db, "items"), where('categoryId', '==', categoryId));
 
+            resolve(getDocs(itemsCollectionQuery)
+                .then((snapshot) => {
+                    return snapshot.docs.map(
+                        (doc) => ({ id: doc.id, ...doc.data() })
+                    );
+                }))
+                .catch((err) => {
+                    console.log(err);
+                })
+        } else {
+            const db = getFirestore();
+            const itemsCollection = collection(db, "items");
+
+            resolve(getDocs(itemsCollection)
+                .then((snapshot) => {
+                    return snapshot.docs.map(
+                        (doc) => ({ id: doc.id, ...doc.data() })
+                    );
+                }))
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
     })
 }

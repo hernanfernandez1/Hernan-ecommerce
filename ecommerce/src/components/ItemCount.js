@@ -3,10 +3,10 @@ import Button from 'react-bootstrap/Button';
 import { BsPlusSquareFill } from "react-icons/bs";
 import { FiMinus } from "react-icons/fi";
 
-const ItemCount = ({ onAdd }) => {
+const ItemCount = ({ onAdd, item }) => {
 
     const [counterStrike, setCountStrike] = useState(1);
-    const stock = 6;
+    const stock = item.stock;
 
     useEffect(() => {
 
