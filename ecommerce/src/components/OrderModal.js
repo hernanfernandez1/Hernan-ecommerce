@@ -57,7 +57,26 @@ const OrderModal = ({ valueToShare }) => {
             }
         })
     }
-
+    const CleanCart = () => {
+        Swal.fire({
+            title: '¿Estás seguro de vaciar el carrito?',
+            text: "La acción no se podrá revertir",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, deseo borrarlo'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Borrado',
+                    'Tu carrito ha sido borrado',
+                    'success'
+                )
+                valueToShare.cleanCart();
+            }
+        })
+    }
     return (
         <>
             <LinkContainer to='/'>
@@ -68,7 +87,7 @@ const OrderModal = ({ valueToShare }) => {
             <Button variant="primary" onClick={handleShow}>
                 Finalizar Compra
             </Button>
-            <Button variant="primary" onClick={valueToShare.cleanCart}>
+            <Button variant="primary" onClick={CleanCart}>
                 Vaciar Carrito
             </Button>
 
