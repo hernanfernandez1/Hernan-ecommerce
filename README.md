@@ -3,7 +3,7 @@
 
 ## Descripción del proyecto
 
-La idea del proyecto es simular un E-commerce, en este caso una tienda de artículos relacionados con el café.
+La idea del proyecto es simular un E-commerce, en este caso una tienda de artículos relacionados con comics y merch.
 La aplicación permite navegar entre distintas categorías de productos, ver el detalle de estos, agregarlos al carrito y procesar una compra.
 Se busca simular todo el proceso de compra de un E-commerce real.
 
