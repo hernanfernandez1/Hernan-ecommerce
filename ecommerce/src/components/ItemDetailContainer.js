@@ -8,10 +8,12 @@ const ItemDetailContainer = () => {
 
     const { id } = useParams();
     const [product, setProduct] = useState();
+    const [load, setLoad] = useState(true);
 
     const obtainProduct = async () => {
         const found = await getItem(id);
         setProduct(found)
+        setLoad(false)
     }
 
     useEffect(() => {
@@ -21,7 +23,8 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-            {product ? <ItemDetail item={product} /> : <Load />}
+            {load && <Load />}
+            {product ? <ItemDetail item={product} /> : <h1 style={{ textAlign: "center", color: 'grey', textDecoration: 'underline' }}>No se encontró el producto</h1>}
         </>
     );
 }

@@ -114,6 +114,18 @@ const OrderModal = ({ valueToShare }) => {
                                 onChange={captureInputs}
                                 value={user.email}
                             />
+
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Ingresa nuevamente tu email</Form.Label>
+                            <Form.Control
+                                type="email"
+                                placeholder="name@example.com"
+                                name='email'
+                                onChange={captureInputs}
+                                value={user.email}
+                            />
+
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Ingresa tu celular</Form.Label>
